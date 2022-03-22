@@ -9,6 +9,7 @@ import { PostService } from '../post.service';
 })
 export class PostComponent implements OnInit {
   @Input() post?:Post;
+  @Input() key:number=0;
   constructor(private Postservivce:PostService) { }
 
   ngOnInit(): void {
@@ -16,6 +17,8 @@ export class PostComponent implements OnInit {
   }
   OnDelete(){
     console.log('delete');
+    console.log(this.key);
+    this.Postservivce.deletPost(this.key);
   }
 
 }
